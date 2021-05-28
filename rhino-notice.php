@@ -3,7 +3,7 @@
 	Plugin Name: Rhino Notice
 	Plugin URI: https://elod.in
     Description: Just another plugin
-	Version: 0.1
+	Version: 0.2
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -28,8 +28,9 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'RHINO_NOTICE', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'RHINO_NOTICE_VERSION', '0.1' );
+define ( 'RHINO_NOTICE_VERSION', '0.2' );
 
+// Enqueue everything
 add_action( 'wp_enqueue_scripts', 'prefix_enqueue' );
 function prefix_enqueue() {
 	
@@ -38,12 +39,11 @@ function prefix_enqueue() {
     wp_enqueue_style( 'montserrat-google-font', 'https://fonts.googleapis.com/css?family=Montserrat', array(), RHINO_NOTICE_VERSION );
     
     // Script
-    wp_enqueue_script( 'rhino-toggle', plugin_dir_url( __FILE__ ) . 'js/rhino-toggle.js', array( 'jquery' ), RHINO_NOTICE_VERSION, true );
-    
-    
+    wp_enqueue_script( 'rhino-toggle', plugin_dir_url( __FILE__ ) . 'js/rhino-toggle.js', array( 'jquery' ), RHINO_NOTICE_VERSION, true );    
 	
 }
 
+// Add the basic markup
 add_action( 'wp_footer', 'rhino_output_markup' );
 function rhino_output_markup() {        
     
@@ -67,6 +67,7 @@ function rhino_output_markup() {
         
 }
 
+// Filter the markup to allow for a theme to replace this
 add_filter( 'rhino_markup', 'rhino_default_markup', 10, 1 );
 function rhino_default_markup( $markup ) {
     ob_start();
@@ -82,7 +83,7 @@ function rhino_default_markup( $markup ) {
     <ol class="rhino__list">
         <li>
             <h3>Savings when you need them</h3>
-            <p>Residents can save hundres, sometimes thousands on upfront move-in costs. Get in the door quicker with more cash in your pocket.</p>
+            <p>Residents can save hundreds, sometimes thousands on upfront move-in costs. Get in the door quicker with more cash in your pocket.</p>
         </li>
         <li>
             <h3>Hassle-free enrollment</h3>
@@ -99,7 +100,19 @@ function rhino_default_markup( $markup ) {
     return ob_get_clean();
 }
 
+// Filter the link to allow the theme to replace this
 add_filter( 'rhino_link', 'rhino_default_link', 10, 1 );
 function rhino_default_link( $link ) {
     return 'https://www.sayrhino.com';
 }
+
+//* Add the updater
+require 'vendor/plugin-update-checker/plugin-update-checker.php';
+$myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
+	'https://github.com/jonschr/rhino-notice',
+	__FILE__,
+	'rhino-notice'
+);
+
+// Optional: Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
