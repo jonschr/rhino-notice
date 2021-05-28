@@ -1,3 +1,6 @@
+### 0.2.2
+* Fixing php notices
+
 ### 0.2.1
 * Remove node_modules from the plugin
 

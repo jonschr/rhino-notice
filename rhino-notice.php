@@ -3,7 +3,7 @@
 	Plugin Name: Rhino Notice
 	Plugin URI: https://elod.in
     Description: Just another plugin
-	Version: 0.2.1
+	Version: 0.2.2
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'RHINO_NOTICE', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'RHINO_NOTICE_VERSION', '0.2.1' );
+define ( 'RHINO_NOTICE_VERSION', '0.2.2' );
 
 // Enqueue everything
 add_action( 'wp_enqueue_scripts', 'prefix_enqueue' );
@@ -57,9 +57,11 @@ function rhino_output_markup() {
         echo '</a>';
     
         // the markup
+        $markup = null;
         echo apply_filters( 'rhino_markup', $markup );    
         
         // the button
+        $link = null;
         $link = apply_filters( 'rhino_link', $link );
         printf( '<div class="rhino__button-wrap"><a class="rhino__button" href="%s" target="_blank">Learn more</a></div>', $link );
         
