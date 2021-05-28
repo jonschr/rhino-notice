@@ -1,0 +1,13 @@
+.rhino__button {
+    background-color: $purple;
+    color: white;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+
+    &:hover {
+        background-color: lighten($purple, 5%);
+        color: white;
+        text-decoration: none;
+    }
+}

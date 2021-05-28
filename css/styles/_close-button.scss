@@ -1,0 +1,24 @@
+.rhino__close {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+
+    span {
+        height: 1px;
+        width: 30px;
+        background-color: black;
+        display: block;
+        position: absolute;
+        top: 15px;
+
+        &:nth-child(1) {
+            transform: rotate(-45deg);
+        }
+
+        &:nth-child(2) {
+            transform: rotate(45deg);
+        }
+    }
+}
