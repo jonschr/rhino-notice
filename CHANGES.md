@@ -1,3 +1,6 @@
+### 0.2.3 
+* Better plugin description
+
 ### 0.2.2
 * Fixing php notices
 

@@ -2,8 +2,8 @@
 /*
 	Plugin Name: Rhino Notice
 	Plugin URI: https://elod.in
-    Description: Just another plugin
-	Version: 0.2.2
+    Description: A plugin to show notices for Rhino. No settings, just install and use .rhino with a link or wrapper div as a trigger.
+	Version: 0.2.3
     Author: Jon Schroeder
     Author URI: https://elod.in
 
@@ -28,7 +28,7 @@ if ( !defined( 'ABSPATH' ) ) {
 define( 'RHINO_NOTICE', dirname( __FILE__ ) );
 
 // Define the version of the plugin
-define ( 'RHINO_NOTICE_VERSION', '0.2.2' );
+define ( 'RHINO_NOTICE_VERSION', '0.2.3' );
 
 // Enqueue everything
 add_action( 'wp_enqueue_scripts', 'prefix_enqueue' );
