@@ -1,0 +1,42 @@
+.rhino__slide-in {
+
+    h2,
+    h3,
+    li,
+    p {
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1.5em;
+        margin-bottom: 15px;
+        font-weight: 400;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    h2 {
+        font-size: 30px;
+        color: $purple;
+        font-weight: bold;
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+
+    ol li {
+        list-style: none;
+    }
+
+    p,
+    li {
+        font-size: 15px;
+    }
+
+    .rhino__preheader .rhino__preheader-text {
+        font-weight: bold;
+        font-size: 30px;
+    }
+}

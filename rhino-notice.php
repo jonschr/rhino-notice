@@ -35,9 +35,12 @@ function prefix_enqueue() {
 	
 	// Plugin styles
     wp_enqueue_style( 'rhino-style', plugin_dir_url( __FILE__ ) . 'css/rhino-styles.css', array(), RHINO_NOTICE_VERSION, 'screen' );
+    wp_enqueue_style( 'montserrat-google-font', 'https://fonts.googleapis.com/css?family=Montserrat', array(), RHINO_NOTICE_VERSION );
     
     // Script
     wp_enqueue_script( 'rhino-toggle', plugin_dir_url( __FILE__ ) . 'js/rhino-toggle.js', array( 'jquery' ), RHINO_NOTICE_VERSION, true );
+    
+    
 	
 }
 
@@ -58,7 +61,7 @@ function rhino_output_markup() {
         
         // the button
         $link = apply_filters( 'rhino_link', $link );
-        printf( '<a class="rhino__button" href="%s" target="_blank">Learn more</a>', $link );
+        printf( '<div class="rhino__button-wrap"><a class="rhino__button" href="%s" target="_blank">Learn more</a></div>', $link );
         
     echo '</div>';
         
@@ -69,9 +72,11 @@ function rhino_default_markup( $markup ) {
     ob_start();
     
     ?>
-    <div class="rhino__preheader"></div>
+    <div class="rhino__preheader">
+        <p class="rhino__preheader-text">Rhino</p>
+    </div>
     <div class="rhino__header">
-        <h2>Go deposit free with rhino</h2>
+        <h2>Go deposit free with Rhino</h2>
         <p>Satisfy your upfront deposit requirements</p>
     </div>
     <ol class="rhino__list">

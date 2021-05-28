@@ -1,0 +1,31 @@
+ol.rhino__list {
+    counter-reset: rhino-counter;
+    padding-left: 45px;
+
+    li {
+        margin-bottom: 30px;
+        counter-increment: rhino-counter;
+        position: relative;
+
+        &:before {
+            content: counter(rhino-counter);
+            position: absolute;
+            left: -45px;
+            top: 0px;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            background-color: $purple;
+            border-radius: 100%;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            padding-top: 5px;
+            font-weight: bold;
+        }
+
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

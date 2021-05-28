@@ -2,12 +2,21 @@
     background-color: $purple;
     color: white;
     text-decoration: none;
-    padding: 8px 20px;
-    border-radius: 20px;
+    padding: 12px 25px;
+    display: inline-block;
+    position: static;
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    border-radius: 25px;
 
     &:hover {
         background-color: lighten($purple, 5%);
         color: white;
         text-decoration: none;
     }
+}
+
+.rhino__button-wrap {
+    // text-align: right;
 }
